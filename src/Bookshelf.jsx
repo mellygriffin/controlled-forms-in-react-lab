@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import BookCard from './BookCard.jsx';
 
 const Bookshelf = () => {
 
@@ -18,7 +19,7 @@ const handleInputChange = (event) => {
 
 const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('Default prevented.')
+    setBooks([...books, newBook]);
 };
 
 
@@ -54,7 +55,9 @@ return (
             <div className="bookCardsDiv">{
                 <ul>
                     {books.map((book, index) => (
-                        <li key={index}> {book.title}, {book.author}</li>
+                        <li key={index}> 
+                        <BookCard title={book.title} author={book.author} />
+                        </li>
                     ))}
                 </ul>
                 }</div>
